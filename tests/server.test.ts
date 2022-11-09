@@ -85,8 +85,8 @@ describe('utilities/server', () => {
     );
   });
 
-  // Make sure the server logs requests by default.
-  test('log requests to the server by default', async () => {
+  // Make sure the server doesn't log requests when told not to.
+  test('do not log requests when the --no-request-logging flag is passed', async () => {
     const consoleSpy = vi.spyOn(logger, 'http');
     const address = await startServer({ port: 3004 }, config, {
       '--no-request-logging': true,
